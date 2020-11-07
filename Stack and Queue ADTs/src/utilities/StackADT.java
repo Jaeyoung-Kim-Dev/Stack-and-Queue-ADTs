@@ -17,4 +17,6 @@ public interface StackADT extends Serializable {
 	//peek - Get the first element without removing it
 	//isEmpty - Is there any elements?
 	//size - How many elements are there?
+	
+	/add.. .what?
 }
