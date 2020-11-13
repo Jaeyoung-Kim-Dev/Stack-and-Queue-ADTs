@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
  * @author kornk
  *
  */
-class MyDLLTests {
+class MySLLTests {
 
 	/**
 	 * @throws java.lang.Exception
