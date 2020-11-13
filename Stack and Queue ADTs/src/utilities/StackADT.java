@@ -19,7 +19,7 @@ public interface StackADT<E> extends Serializable {
 	 * 
 	 * Precondition:
 	 * 
-     * Postcondition:
+	 * Postcondition:
 	 * 
 	 * @param e Element
 	 */
@@ -30,8 +30,8 @@ public interface StackADT<E> extends Serializable {
 	 * 
 	 * Precondition:
 	 * 
-     * Postcondition:
-     * 
+	 * Postcondition:
+	 * 
 	 * @return Element removed from Top of the stack.
 	 *
 	 * @throws EmptyStackException Thrown if stack has nothing to pop.
@@ -39,24 +39,25 @@ public interface StackADT<E> extends Serializable {
 	public E Epop() throws EmptyStackException;
 
 	/**
-	 * Returns the element at the top of the stack without removing it from the stack.
+	 * Returns the topmost element in a stack without removing it.
 	 * 
 	 * Precondition:
 	 * 
-     * Postcondition:
+	 * Postcondition:
 	 * 
 	 * @return Element at the top of the stack.
 	 * 
 	 * @throws EmptyStackException Thrown if stack has nothing to pop.
 	 */
-	public E peek( ) throws EmptyStackException;
+	public E peek() throws EmptyStackException;
 
 	/**
+	 * Makes a stack empty.
 	 * 
 	 * Precondition:
 	 * 
-     * Postcondition:
-     * 
+	 * Postcondition:
+	 * 
 	 * Clears everything from the stack.
 	 */
 	public void clear();
@@ -66,28 +67,95 @@ public interface StackADT<E> extends Serializable {
 	 * 
 	 * Precondition:
 	 * 
-     * Postcondition:
-     * 
+	 * Postcondition:
+	 * 
 	 * @return True if stack has nothing in it.
 	 */
 	public boolean isEmpty();
-	
-	
-	
-	
-	
-	
-	
+
+	/**
+	 * To be equal two stacks must contain equal items appearing in the same order.
+	 * 
+	 * Precondition:
+	 * 
+	 * Postcondition:
+	 * 
+	 * @param that
+	 * @return
+	 */
+	public boolean equals(StackADT<E> that);
+
+	/**
+	 * Returns an iterator over the items contained in this stack. The iterator¡¯s
+	 * remove() method is not supported because it violates a stack¡¯s basic
+	 * contract.
+	 * 
+	 * Precondition:
+	 * 
+	 * Postcondition:
+	 * 
+	 * @return
+	 */
+	public Iterator<E> iterator();
+
+	/**
+	 * Return an array containing all of the items in this stack. The top of the
+	 * stack corresponds to the first element of the array.
+	 * 
+	 * Precondition:
+	 * 
+	 * Postcondition:
+	 * 
+	 * @return
+	 */
+	public Object[] toArray();
+
+	/**
+	 * 
+	 * Precondition:
+	 * 
+	 * Postcondition:
+	 * 
+	 * @param copy
+	 * @return
+	 */
+	public E[] toArray(E[] copy);
+
+	/**
+	 * Not a zero-based position. Instead, the top is at position 1, the next one is
+	 * position 2 etc.
+	 * 
+	 * Precondition:
+	 * 
+	 * Postcondition:
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public int search(E o);
+
+	/**
+	 * 
+	 * Precondition:
+	 * 
+	 * Postcondition:
+	 * 
+	 * @param o
+	 * @return
+	 */
+	public boolean contains(E o);
+
 	/**
 	 * How many elements are there?
 	 * 
-	 * @param e Element
+	 * Precondition:
+	 * 
+	 * Postcondition:
+	 * 
+	 * @return
 	 */
-	public void size(E e);
-
-	// public void boolean equals( StackADT<E> that)
+	public int size();
 
 }
-
 
 //E[] items = (E[])new Object[size];
