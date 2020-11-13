@@ -91,6 +91,10 @@ public interface QueueADT<E> extends Serializable {
 	public boolean equals(QueueADT<E> that);
 	
 	/**
+	 *
+	 * Precondition:
+	 * 
+	 * Postcondition:
 	 * 
 	 * @return
 	 */
@@ -98,12 +102,22 @@ public interface QueueADT<E> extends Serializable {
 	
 	/**
 	 * 
+	 * 
+	 * Precondition:
+	 * 
+	 * Postcondition:
+	 * 
 	 * @param copy
 	 * @return
 	 */
 	public E[] toArray(E[] copy);
 	
 	/**
+	 * 
+	 * 
+	 * Precondition:
+	 * 
+	 * Postcondition:
 	 * 
 	 * @return
 	 */
