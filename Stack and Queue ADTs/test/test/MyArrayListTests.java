@@ -36,13 +36,15 @@ import utilities.ListADT;
 /**
  * Tests the MyArrayList.
  * 
- * @author kornk
+ * @author Jaeyoung Kim
  *
  */
 class MyArrayListTests {
 	private ListADT<Integer> list;
 
 	/**
+	 * Will execute the method once, before the start of all tests. 
+	 * 
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
@@ -50,6 +52,8 @@ class MyArrayListTests {
 	}
 
 	/**
+	 * Will execute the method once, after all tests have finished. 
+	 * 
 	 * @throws java.lang.Exception
 	 */
 	@AfterEach
@@ -60,7 +64,7 @@ class MyArrayListTests {
 	 * 	
 	 */
 	@Test
-	public void testAdd() {
+	public void testAddValid() {
 		int expected = 1;
 		
 		try {
@@ -74,8 +78,7 @@ class MyArrayListTests {
 			fail("");
 		} catch (IndexOutOfBoundsException e) {
 			fail("");
-		}
-		
+		}		
 	}
 	
 	/**
@@ -94,48 +97,5 @@ class MyArrayListTests {
 			
 		}
 	}
-	
-	
-	/**
-	 * 	
-	 */
-	@Test
-	public void testAppending() {
-		//fail("Not yet implemented");
-	}
-	
-	/**
-	 * 	
-	 */
-	@Test
-	public void testReplacing() {
-		//fail("Not yet implemented");
-	}
-	
-	/**
-	 * 	
-	 */
-	@Test
-	public void testClearingAll() {
-		//fail("Not yet implemented");
-	}
-	
-	/**
-	 * 	
-	 */
-	@Test
-	public void testGetting() {
-		//fail("Not yet implemented");
-	}
-	
-	/**
-	 * 	
-	 */
-	@Test
-	public void testFinding() {
-		//fail("Not yet implemented");
-	}
-	
-	
 
 }

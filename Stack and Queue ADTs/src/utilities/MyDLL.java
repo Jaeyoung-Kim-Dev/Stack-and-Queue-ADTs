@@ -37,7 +37,7 @@ public class MyDLL<E> implements ListADT<E> {
 	@Override
 	public E get(int index) throws IndexOutOfBoundsException {
 		// TODO Auto-generated method stub
-		return (E) list(index);
+		return null; //(E) list(index);
 	}
 
 	@Override
