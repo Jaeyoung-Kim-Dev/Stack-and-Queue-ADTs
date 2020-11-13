@@ -14,9 +14,8 @@ public class MyArrayListIterator<E> implements Iterator<E> {
 	private MyArrayList<E> myArrayList;
 	
 	public MyArrayListIterator(MyArrayList<E> myArrayList) {
-		// TODO Auto-generated constructor stub
+		this.myArrayList = myArrayList;
 	}
-
 	
 	/**
 	 * Returns <code>true</code> if the iteration has more elements. 
