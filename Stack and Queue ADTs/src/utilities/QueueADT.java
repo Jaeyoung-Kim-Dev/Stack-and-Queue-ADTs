@@ -6,7 +6,7 @@ package utilities;
 import java.io.Serializable;
 
 /**
- * @author kornk
+ * @author Jaeyoung Kim
  * @param <E>
  *
  */

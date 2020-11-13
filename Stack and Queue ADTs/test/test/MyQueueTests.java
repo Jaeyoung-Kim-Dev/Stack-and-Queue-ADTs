@@ -16,17 +16,23 @@ import org.junit.jupiter.api.Test;
 class MyQueueTests {
 
 	/**
+	 * @Before - Will execute the method before each test. This method can prepare
+	 *         the test environment (e.g. read input data, initialize the class).
+	 * 
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
-	void setUp() throws Exception {
+	public void setUp() throws Exception {
 	}
 
 	/**
+	 * @After - Will execute the method after each test. This method can cleanup the
+	 *        test environment (e.g. delete temporary data, restore defaults).
+	 * 
 	 * @throws java.lang.Exception
 	 */
 	@AfterEach
-	void tearDown() throws Exception {
+	public void tearDown() throws Exception {
 	}
 
 	@Test

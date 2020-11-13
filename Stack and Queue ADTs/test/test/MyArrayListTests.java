@@ -32,6 +32,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import utilities.ListADT;
+import utilities.MyArrayList;
 
 /**
  * Tests the MyArrayList.
@@ -40,62 +41,402 @@ import utilities.ListADT;
  *
  */
 class MyArrayListTests {
-	private ListADT<Integer> list;
+	private MyArrayList<String> myArrayListString;
+	private MyArrayList<Integer> myArrayListInt;
 
 	/**
-	 * Will execute the method once, before the start of all tests. 
+	 * @Before - Will execute the method before each test. This method can prepare
+	 *         the test environment (e.g. read input data, initialize the class).
 	 * 
 	 * @throws java.lang.Exception
 	 */
 	@BeforeEach
 	public void setUp() throws Exception {
+		myArrayListString = new MyArrayList<>();
+		myArrayListInt = new MyArrayList<>();
 	}
 
 	/**
-	 * Will execute the method once, after all tests have finished. 
+	 * @After - Will execute the method after each test. This method can cleanup the
+	 *        test environment (e.g. delete temporary data, restore defaults).
 	 * 
 	 * @throws java.lang.Exception
 	 */
 	@AfterEach
 	public void tearDown() throws Exception {
-	}
-		
-	/**
-	 * 	
-	 */
-	@Test
-	public void testAddValid() {
-		int expected = 1;
-		
-		try {
-			this.list.add(1);
-			
-			assertFalse(this.list.isEmpty());
-			
-			int actual = this.list.get(0);
-			assertEquals(expected, actual);	
-		} catch (NullPointerException e) {
-			fail("");
-		} catch (IndexOutOfBoundsException e) {
-			fail("");
-		}		
+		myArrayListString.clear();
+		myArrayListInt.clear();
 	}
 	
 	/**
-	 * 	
+	 * Adding an element at the end of the list.
 	 */
 	@Test
-	public void testAddInvalid() {
-		
-		assertTrue(this.list.isEmpty());
-		
+	public void testAppend() {
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+		this.myArrayListString.add("c");
+		this.myArrayListString.add("d");
+
 		try {
-			int actual = this.list.get(0);	
-			
-			fail("List is not empty");
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> c -> d
+			 */
+
+			// Test the linked list is not empty.
+			assertFalse(this.myArrayListString.isEmpty());
+
+			// Test the size is 4
+			assertEquals(4, myArrayListString.size());
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("c", myArrayListString.get(2));
+			assertEquals("d", myArrayListString.get(3));
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
 		} catch (IndexOutOfBoundsException e) {
-			
+			System.out.println(e.getMessage());
 		}
 	}
 
+	/**
+	 * 	Adding an element at index - pass
+	 */
+	@Test
+	public void testAdd() {
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+		this.myArrayListString.add("c");
+		this.myArrayListString.add("d");
+
+		try {			
+			
+			this.myArrayListString.add(2, "e");
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> e -> c -> d
+			 */
+
+			// Test the linked list is not empty.
+			assertFalse(this.myArrayListString.isEmpty());
+
+			// Test the size is 5
+			assertEquals(5, myArrayListString.size());			
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("e", myArrayListString.get(2));
+			assertEquals("c", myArrayListString.get(3));
+			assertEquals("d", myArrayListString.get(4));
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	/**
+	 * Replacing an element at index
+	 */
+	@Test
+	public void testReplace() {
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+		this.myArrayListString.add("c");
+		this.myArrayListString.add("d");
+
+		try {
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> c -> d
+			 */
+			
+			assertEquals("c", myArrayListString.set(2, "e"));
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> e -> d
+			 */
+
+			// Test the linked list is not empty.
+			assertFalse(this.myArrayListString.isEmpty());
+
+			// Test the size is 4
+			assertEquals(4, myArrayListString.size());
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("e", myArrayListString.get(2));
+			assertEquals("d", myArrayListString.get(3));
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	/**
+	 * Getting an element
+	 */
+	@Test
+	public void testGet() {
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+		this.myArrayListString.add("c");
+		this.myArrayListString.add("d");
+
+		try {
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> c -> d
+			 */
+
+			// Test the linked list is not empty.
+			assertFalse(this.myArrayListString.isEmpty());
+
+			// Test the size is 4
+			assertEquals(4, myArrayListString.size());
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("c", myArrayListString.get(2));
+			assertEquals("d", myArrayListString.get(3));
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	/**
+	 * Getting an element
+	 */
+	@Test
+	public void testFind() {
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+		this.myArrayListString.add("c");
+		this.myArrayListString.add("d");
+
+		try {
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> c -> d
+			 */
+
+			// Test the linked list is not empty.
+			assertFalse(this.myArrayListString.isEmpty());
+
+			// Test the size is 4
+			assertEquals(4, myArrayListString.size());
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("c", myArrayListString.get(2));
+			assertEquals("d", myArrayListString.get(3));
+
+			// Elements existing in the list
+			assertEquals(true, myArrayListString.contains("a"));
+			assertEquals(true, myArrayListString.contains("b"));
+			assertEquals(true, myArrayListString.contains("c"));
+			assertEquals(true, myArrayListString.contains("d"));
+
+			// Elements doesn't exist in the list
+			assertEquals(false, myArrayListString.contains("e"));
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	/**
+	 * Getting an element
+	 */
+	@Test
+	public void testRemoveIndex() {
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+		this.myArrayListString.add("c");
+		this.myArrayListString.add("d");
+
+		try {
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> c -> d
+			 */
+
+			// Test the linked list is not empty.
+			assertFalse(this.myArrayListString.isEmpty());
+
+			// Test the size is 4
+			assertEquals(4, myArrayListString.size());
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("c", myArrayListString.get(2));
+			assertEquals("d", myArrayListString.get(3));
+
+			// Remove the element at index 2
+			myArrayListString.remove(2);
+
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> d
+			 */
+
+			// Test the size is 3
+			assertEquals(3, myArrayListString.size());
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("d", myArrayListString.get(2));
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	/**
+	 * Getting an element
+	 */
+	@Test
+	public void testRemoveElement() {
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+		this.myArrayListString.add("c");
+		this.myArrayListString.add("d");
+
+		try {
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> c -> d
+			 */
+
+			// Test the linked list is not empty.
+			assertFalse(this.myArrayListString.isEmpty());
+
+			// Test the size is 4
+			assertEquals(4, myArrayListString.size());
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("c", myArrayListString.get(2));
+			assertEquals("d", myArrayListString.get(3));
+
+			// Remove the element the element "c"
+			myArrayListString.remove("c");
+
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> d
+			 */
+
+			// Test the size is 3
+			assertEquals(3, myArrayListString.size());
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("d", myArrayListString.get(2));
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	/**
+	 * Clearing elements in the list
+	 */
+	@Test
+	public void testClear() {
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+		this.myArrayListString.add("c");
+		this.myArrayListString.add("d");
+
+		try {
+			/**
+			 * Linked list should now be:
+			 * 
+			 * a -> b -> c -> d
+			 */
+
+			// Test the linked list is not empty.
+			assertFalse(this.myArrayListString.isEmpty());
+
+			// Test the size is 4
+			assertEquals(4, myArrayListString.size());
+
+			// Clear elements in the list
+			myArrayListString.clear();
+
+			// Test the linked list is empty.
+			assertTrue(this.myArrayListString.isEmpty());
+
+			// Test the size is 0
+			assertEquals(0, myArrayListString.size());
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testToArrayElement() {
+		assertTrue(false);
+		
+	}
+	
+	/**
+	 * 
+	 */
+	@Test
+	public void testToArrayObject() {
+		assertTrue(false);
+		
+	}
+
+	/**
+	 * 
+	 */
+	@Test
+	public void testIterator() {
+		assertTrue(false);
+		
+	}
+	
 }
