@@ -1,14 +1,9 @@
-/**
- * 
- */
 package utilities;
 
-/**
- * @author kornk
- *
- */
-public class MyArrayList<E> implements ListADT<E> {
+public class MyDLL<E> implements ListADT<E> {
 
+	//private ListADT<Integer> list;
+	
 	@Override
 	public int size() {
 		// TODO Auto-generated method stub
@@ -42,7 +37,7 @@ public class MyArrayList<E> implements ListADT<E> {
 	@Override
 	public E get(int index) throws IndexOutOfBoundsException {
 		// TODO Auto-generated method stub
-		return null;
+		return (E) list(index);
 	}
 
 	@Override
@@ -88,25 +83,9 @@ public class MyArrayList<E> implements ListADT<E> {
 	}
 
 	@Override
-	public Iterator<E> iterator() {		
-		return new MyArrayListIterator<E>(this);
+	public Iterator<E> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	/**
-	 * to use Iterator
-	 * 
-	 * Get ListADT implementation
-	 * 
-	 * Get the iterator
-	 * Iterator<String> it = list.iterator();
-	 *  
-	 * Loop through the list
-	 * while (it.hasNext()) {
-	 * String element = it.next();
-	 * }
-	 *  
-	 * try catch nosuchelement 
-	 */
-	
-	
 }
