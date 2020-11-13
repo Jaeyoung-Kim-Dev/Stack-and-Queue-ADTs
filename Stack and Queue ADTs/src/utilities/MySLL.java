@@ -258,7 +258,7 @@ public class MySLL<E> implements ListADT<E> {
 			// set the placed Node's next which isn't in use anymore to null.
 			nextPositionNode.setNext(null);
 
-			return (E) findPositionNode.getData();
+			return (E) nextPositionNode.getData();
 		} catch (NullPointerException e) {
 			return null;
 		} catch (IndexOutOfBoundsException e) {
@@ -268,7 +268,7 @@ public class MySLL<E> implements ListADT<E> {
 
 	@Override
 	public boolean isEmpty() {
-		return (size() == 0) ? true : false;
+		return size() == 0;
 	}
 
 	@Override
