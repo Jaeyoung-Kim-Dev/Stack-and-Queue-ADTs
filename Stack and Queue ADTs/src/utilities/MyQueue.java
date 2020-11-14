@@ -1,5 +1,11 @@
 package utilities;
 
+/**
+ * 
+ * @author Jaeyoung Kim
+ *
+ * @param <E>
+ */
 @SuppressWarnings("serial")
 public class MyQueue<E> implements QueueADT<E> {
 	private MySLL<E> mySLL;

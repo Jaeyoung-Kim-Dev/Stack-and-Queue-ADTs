@@ -2,6 +2,12 @@ package utilities;
 
 import exceptions.EmptyStackException;
 
+/**
+ * 
+ * @author Jaeyoung Kim
+ *
+ * @param <E>
+ */
 @SuppressWarnings("serial")
 public class MyStack<E> implements StackADT<E> {
 	private MyArrayList<E> myArrayList;

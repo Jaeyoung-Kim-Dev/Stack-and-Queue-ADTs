@@ -59,7 +59,7 @@ class MyArrayListTests {
 	/**
 	 * @After - Will execute the method after each test. This method can cleanup the
 	 *        test environment (e.g. delete temporary data, restore defaults).
-	 * 
+	 * t
 	 * @throws java.lang.Exception
 	 */
 	@AfterEach
