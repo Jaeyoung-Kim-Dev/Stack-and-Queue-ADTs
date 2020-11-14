@@ -6,7 +6,7 @@ package utilities;
 import java.util.NoSuchElementException;
 
 /**
- * @author kornk
+ * @author Jaeyoung Kim
  *
  */
 public class MySLLIterator<E> implements Iterator<E> {

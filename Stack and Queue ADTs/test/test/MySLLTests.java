@@ -13,7 +13,7 @@ import utilities.MyArrayList;
 import utilities.MySLL;
 
 /**
- * @author kornk
+ * @author Jaeyoung Kim
  *
  */
 class MySLLTests {

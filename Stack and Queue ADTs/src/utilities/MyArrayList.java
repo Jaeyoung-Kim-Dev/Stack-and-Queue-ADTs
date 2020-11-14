@@ -4,7 +4,7 @@
 package utilities;
 
 /**
- * @author kornk
+ * @author Jaeyoung Kim
  *
  */
 public class MyArrayList<E> implements ListADT<E> {
