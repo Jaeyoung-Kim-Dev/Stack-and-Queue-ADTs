@@ -14,9 +14,9 @@ public interface QueueADT<E> extends Serializable {
 
 	
 	/**
-	 * add to the tail of the queue
+	 * Mutator method to 'add to the tail of the queue
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 
@@ -25,9 +25,9 @@ public interface QueueADT<E> extends Serializable {
 	public void enqueue(E o);
 	
 	/**
-	 * remove from the head of the queue
+	 * Mutator method to 'remove from the head of the queue
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 
@@ -36,9 +36,9 @@ public interface QueueADT<E> extends Serializable {
 	public E dequeue();
 	
 	/**
-	 * look at the element at the head of the queue
+	 * Accessor method to 'look at the element at the head of the queue
 	 *
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 
@@ -47,9 +47,9 @@ public interface QueueADT<E> extends Serializable {
 	public E peek();
 	
 	/**
-	 * Checks if the queue is empty.
+	 * Accessor method to 'Checks if the queue is empty.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 
@@ -58,9 +58,9 @@ public interface QueueADT<E> extends Serializable {
 	public boolean isEmpty(); 
 	
 	/**
-	 * only if queue is of static capacity
+	 * Accessor method to 'only if queue is of static capacity
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 
@@ -69,9 +69,9 @@ public interface QueueADT<E> extends Serializable {
 	public boolean isFull();
 	
 	/**
-	 * clear all elements from the queue
+	 * Mutator method to 'clear all elements from the queue
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 
@@ -81,7 +81,7 @@ public interface QueueADT<E> extends Serializable {
 	/**
 	 * To be equal two stacks must contain equal items appearing in the same order.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 
@@ -92,7 +92,7 @@ public interface QueueADT<E> extends Serializable {
 	
 	/**
 	 *
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 
@@ -103,7 +103,7 @@ public interface QueueADT<E> extends Serializable {
 	/**
 	 * 
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 
@@ -115,7 +115,7 @@ public interface QueueADT<E> extends Serializable {
 	/**
 	 * 
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Queue object exists and an integer value is passed.
 	 * 
 	 * Postcondition:
 	 * 

@@ -15,22 +15,22 @@ import exceptions.EmptyStackException;
  */
 public interface StackADT<E> extends Serializable {
 	/**
-	 * Pushes an element to the top of the stack.
+	 * Mutator method to push an element to the top of the stack.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: Element is inserted to the top of the stack.
 	 * 
-	 * @param e Element
+	 * @param e Element which is needed to be inserted
 	 */
 	public void push(E e);
 
 	/**
-	 * Remove and returns the element at the top of the stack
+	 * Mutator method to remove and returns the element at the top of the stack.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: Element at the top of the stack is removed and returned.
 	 * 
 	 * @return Element removed from Top of the stack.
 	 *
@@ -39,11 +39,11 @@ public interface StackADT<E> extends Serializable {
 	public E pop() throws EmptyStackException;
 
 	/**
-	 * Returns the topmost element in a stack without removing it.
+	 * Accessor method to return the topmost element in a stack without removing it.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: The topmost element is returned without removing it.
 	 * 
 	 * @return Element at the top of the stack.
 	 * 
@@ -52,33 +52,35 @@ public interface StackADT<E> extends Serializable {
 	public E peek() throws EmptyStackException;
 
 	/**
-	 * Makes a stack empty.
+	 * Mutator method to make a stack empty.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: Stack is empty.
 	 * 
 	 * Clears everything from the stack.
 	 */
 	public void clear();
 
 	/**
-	 * Checks if the stack is empty.
+	 * Accessor method to check if the stack is empty.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: It returns true if stack is empty otherwise it returns False.
 	 * 
 	 * @return True if stack has nothing in it.
 	 */
 	public boolean isEmpty();
 
 	/**
-	 * To be equal two stacks must contain equal items appearing in the same order.
+	 * Accessor method to check if two stacks contain equal items appearing in the
+	 * same order.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: It returns true if two stacks contain equal items appearing in
+	 * the same order otherwise it returns False.
 	 * 
 	 * @param that
 	 * @return
@@ -86,35 +88,37 @@ public interface StackADT<E> extends Serializable {
 	public boolean equals(StackADT<E> that);
 
 	/**
-	 * Returns an iterator over the items contained in this stack. The iterator¡¯s
-	 * remove() method is not supported because it violates a stack¡¯s basic
-	 * contract.
+	 * Returns an iterator over the items contained in this stack.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: It returns an iterator over the items contained in this stack.
 	 * 
 	 * @return
 	 */
 	public Iterator<E> iterator();
 
 	/**
-	 * Return an array containing all of the items in this stack. The top of the
+	 * Returns an array containing all of the items in this stack. The top of the
 	 * stack corresponds to the first element of the array.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: It returns an array containing all of the items in this stack.
 	 * 
 	 * @return
 	 */
 	public Object[] toArray();
 
 	/**
+	 * Returns an array containing all of the elements in this list in proper
+	 * sequence. The runtime type of the returned array is that of the specified
+	 * array.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: It returns an array containing all of the elements in this
+	 * list in proper sequence
 	 * 
 	 * @param copy
 	 * @return
@@ -122,40 +126,42 @@ public interface StackADT<E> extends Serializable {
 	public E[] toArray(E[] copy);
 
 	/**
-	 * Returns the position of an Element on the stack, with the top most Element
-	 * being at position 1, and each Element deeper in the stack at depth + 1.
+	 * Accessor method to return the position of an Element on the stack, with the
+	 * topmost Element being at position 1, and each Element deeper in the stack at
+	 * depth + 1.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: It returns the position of an Element on the stack.
 	 * 
-	 * @param o
+	 * @param e
 	 * @return
 	 */
-	public int search(E o);
+	public int search(E e);
 
 	/**
+	 * Accessor method to check whether a specific element is present in the Stack
+	 * or not.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: It returns true if a specific element is present in the Stack
+	 * otherwise it returns False.
 	 * 
-	 * @param o
-	 * @return
+	 * @param e element that needs to be tested if it is present in the Stack or not
+	 * @return True if the element is present in the Stack otherwise it returns
+	 *         False.
 	 */
-	public boolean contains(E o);
+	public boolean contains(E e);
 
 	/**
-	 * How many elements are there?
+	 * Accessor method to return the number of Elements on the stack.
 	 * 
-	 * Precondition:
+	 * Precondition: A valid Stack object exists and an integer value is passed.
 	 * 
-	 * Postcondition:
+	 * Postcondition: It returns the number of Elements on the stack.
 	 * 
 	 * @return
 	 */
 	public int size();
-
 }
-
-//E[] items = (E[])new Object[size];
