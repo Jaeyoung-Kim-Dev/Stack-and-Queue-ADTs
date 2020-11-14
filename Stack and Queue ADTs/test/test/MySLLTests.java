@@ -90,8 +90,8 @@ class MySLLTests {
 		this.mySSLString.add("c");
 		this.mySSLString.add("d");
 
-		try {			
-			
+		try {
+
 			mySSLString.add(2, "e");
 			/**
 			 * Linked list should now be:
@@ -135,7 +135,7 @@ class MySLLTests {
 			 * 
 			 * a -> b -> c -> d
 			 */
-			
+
 			assertEquals("c", mySSLString.set(2, "e"));
 			/**
 			 * Linked list should now be:
@@ -162,6 +162,49 @@ class MySLLTests {
 		}
 	}
 
+	/**
+	 * 
+	 */
+	@Test
+	public void testAddAll() {
+
+		MyArrayList<String> myArrayListStringToAdd = new MyArrayList<>();
+
+		this.mySSLString.add("a");
+		this.mySSLString.add("b");
+
+		myArrayListStringToAdd.add("c");
+		myArrayListStringToAdd.add("d");
+
+		mySSLString.addAll(myArrayListStringToAdd);
+
+		try {
+			/**
+			 * Array list should now be:
+			 * 
+			 * a -> b -> c -> d
+			 */
+
+			// Test the array list is not empty.
+			assertFalse(this.mySSLString.isEmpty());
+
+			// Test the size is 4
+			assertEquals(4, mySSLString.size());
+
+			// Test the values as per index
+			assertEquals("a", mySSLString.get(0));
+			assertEquals("b", mySSLString.get(1));
+			assertEquals("c", mySSLString.get(2));
+			assertEquals("d", mySSLString.get(3));
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
 	/**
 	 * Getting an element
 	 */
@@ -348,7 +391,7 @@ class MySLLTests {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Clearing elements in the list
 	 */
@@ -387,31 +430,37 @@ class MySLLTests {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * 
 	 */
 	@Test
 	public void testToArrayElement() {
-		assertTrue(false);
-		
-	}
-	
-	/**
-	 * 
-	 */
-	@Test
-	public void testToArrayObject() {
-		assertTrue(false);
-		
+		String[] temp = { "a", "b" };
+
+		this.mySSLString.add("c");
+		this.mySSLString.add("d");
+
+		Object[] myArrayString = mySSLString.toArray(temp);
+
+		// Test the values as per index
+		assertEquals("a", myArrayString[0]);
+		assertEquals("b", myArrayString[1]);
+
 	}
 
 	/**
 	 * 
 	 */
 	@Test
-	public void testIterator() {
-		assertTrue(false);
-		
-	}
+	public void testToArrayObject() {
+		this.mySSLString.add("a");
+		this.mySSLString.add("b");
+
+		Object[] temp = mySSLString.toArray();
+
+		// Test the values as per index
+		assertEquals("a", temp[0]);
+		assertEquals("b", temp[1]);
+	}	
 }

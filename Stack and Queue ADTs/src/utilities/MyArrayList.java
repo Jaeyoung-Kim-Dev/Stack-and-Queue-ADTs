@@ -41,9 +41,9 @@ public class MyArrayList<E> implements ListADT<E> {
 
 	@Override
 	public boolean add(int index, E toAdd) throws NullPointerException, IndexOutOfBoundsException {
-		try {			
+		try {
 			this.size++;
-			
+
 			Object[] tempObjs = new Object[size];
 
 			for (int i = 0; i < size; i++) {
@@ -52,7 +52,7 @@ public class MyArrayList<E> implements ListADT<E> {
 				} else if (i == index) {
 					tempObjs[i] = toAdd;
 				} else {
-					tempObjs[i] = arrayList[i-1];
+					tempObjs[i] = arrayList[i - 1];
 				}
 			}
 
@@ -70,7 +70,7 @@ public class MyArrayList<E> implements ListADT<E> {
 	public boolean add(E toAdd) throws NullPointerException, IndexOutOfBoundsException {
 		try {
 			this.size++;
-			
+
 			Object[] tempObjs = new Object[size];
 
 			for (int i = 0; i < size - 1; i++) {
@@ -80,7 +80,7 @@ public class MyArrayList<E> implements ListADT<E> {
 			tempObjs[size - 1] = toAdd;
 
 			arrayList = tempObjs;
-			return true;			
+			return true;
 		} catch (NullPointerException e) {
 			return false;
 		} catch (IndexOutOfBoundsException e) {
@@ -88,28 +88,21 @@ public class MyArrayList<E> implements ListADT<E> {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public boolean addAll(ListADT<? extends E> toAdd) throws NullPointerException {
 		try {
-			
 			int newSize = size + toAdd.size();
 			Object[] tempObjs = new Object[newSize];
-			
-			for (int i = size; i < newSize; i++) {
-				tempObjs[i] = arrayList[i];
-			}
 
 			for (int i = 0; i < newSize; i++) {
 				if (i < size) {
 					tempObjs[i] = arrayList[i];
 				} else {
-					tempObjs[i] = toAdd.get(i - size + 1);
+					tempObjs[i] = toAdd.get(i - size);
 				}
 			}
-			
-			tempObjs[size] = toAdd;
 
+			this.size = newSize;
 			arrayList = tempObjs;
 			return true;
 		} catch (NullPointerException e) {
@@ -129,7 +122,7 @@ public class MyArrayList<E> implements ListADT<E> {
 
 		try {
 			this.size--;
-			
+
 			Object[] tempObjs = new Object[size];
 			Object tempObj = null;
 
@@ -139,7 +132,7 @@ public class MyArrayList<E> implements ListADT<E> {
 				} else if (i == index) {
 					tempObj = arrayList[i];
 				} else {
-					tempObjs[i-1] = arrayList[i];
+					tempObjs[i - 1] = arrayList[i];
 				}
 			}
 
@@ -165,6 +158,7 @@ public class MyArrayList<E> implements ListADT<E> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public E set(int index, E toChange) throws NullPointerException, IndexOutOfBoundsException {
 		E temp = (E) arrayList[index];
@@ -186,33 +180,27 @@ public class MyArrayList<E> implements ListADT<E> {
 		return false;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public E[] toArray(E[] toHold) throws NullPointerException {
-		// TODO Auto-generated method stub
-		return null;
+		E[] temp = (E[]) new Object[toHold.length];
+		for (int i = 0; i < toHold.length; i++) {
+			temp[i] = toHold[i];
+		}
+		return temp;
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] temp = new Object[this.size];
+		for (int i = 0; i < this.size; i++) {
+			temp[i] = arrayList[i];
+		}
+		return temp;
 	}
 
 	@Override
 	public Iterator<E> iterator() {
 		return new MyArrayListIterator<E>(this);
 	}
-
-	/**
-	 * to use Iterator
-	 * 
-	 * Get ListADT implementation
-	 * 
-	 * Get the iterator Iterator<String> it = list.iterator();
-	 * 
-	 * Loop through the list while (it.hasNext()) { String element = it.next(); }
-	 * 
-	 * try catch nosuchelement
-	 */
-
 }
