@@ -1,65 +1,72 @@
 package utilities;
 
-public class MyQueue implements QueueADT {
+@SuppressWarnings("serial")
+public class MyQueue<E> implements QueueADT<E> {
+	private MySLL<E> mySLL;
 
-	@Override
-	public void enqueue(Object o) {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * @param myArrayList
+	 */
+	public MyQueue() {
+		this.mySLL = new MySLL<E>();
 	}
 
 	@Override
-	public Object dequeue() {
-		// TODO Auto-generated method stub
-		return null;
+	public void enqueue(E e) {
+		mySLL.add(e);		
 	}
 
 	@Override
-	public Object peek() {
-		// TODO Auto-generated method stub
-		return null;
+	public E dequeue() {
+		return mySLL.remove(0);
+	}
+
+	@Override
+	public E peek() {		
+		return mySLL.get(0);
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return mySLL.isEmpty();
 	}
 
 	@Override
 	public boolean isFull() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void dequeueAll() {
-		// TODO Auto-generated method stub
-		
+		mySLL.clear();		
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public boolean equals(QueueADT<E> that) {
+		boolean equal = true;		
+		for (int i =0; i < mySLL.size() && !equal; i++) {
+			if (mySLL.get(i) != ((MySLL<E>) that).get(i)) {
+				equal = false;
+			}
+		}				
+		return equal;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public E[] toArray() {		
+		return (E[]) mySLL.toArray();
 	}
 
 	@Override
-	public boolean equals(QueueADT that) {
-		// TODO Auto-generated method stub
-		return false;
+	public E[] toArray(E[] copy) {
+		return (E[]) mySLL.toArray(copy);
 	}
 
 	@Override
-	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Object[] toArray(Object[] copy) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Iterator iterator() {
-		// TODO Auto-generated method stub
-		return null;
+	public Iterator<E> iterator() {
+		return mySLL.iterator();
 	}
 
 }

@@ -2,80 +2,89 @@ package utilities;
 
 import exceptions.EmptyStackException;
 
-public class MyStack implements StackADT {
+@SuppressWarnings("serial")
+public class MyStack<E> implements StackADT<E> {
+	private MyArrayList<E> myArrayList;
 
-	@Override
-	public void push(Object e) {
-		// TODO Auto-generated method stub
-		
+	/**
+	 * @param myArrayList
+	 */
+	public MyStack() {
+		this.myArrayList = new MyArrayList<E>();
 	}
 
 	@Override
-	public Object Epop() throws EmptyStackException {
-		// TODO Auto-generated method stub
-		return null;
+	public void push(E e) {
+		myArrayList.add(e);
 	}
 
 	@Override
-	public Object peek() throws EmptyStackException {
-		// TODO Auto-generated method stub
-		return null;
+	public E pop() throws EmptyStackException {
+		return myArrayList.remove(0);
+	}
+
+	@Override
+	public E peek() throws EmptyStackException {
+		return myArrayList.get(0);
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		myArrayList.clear();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return myArrayList.isEmpty();
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean equals(StackADT that) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean equal = true;		
+		for (int i =0; i < myArrayList.size() && !equal; i++) {
+			if (myArrayList.get(i) != ((MyArrayList<E>) that).get(i)) {
+				equal = false;
+			}
+		}				
+		return equal;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Iterator iterator() {		
+		return myArrayList.iterator();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public E[] toArray() {		
+		return (E[]) myArrayList.toArray();
 	}
 
 	@Override
-	public Iterator iterator() {
-		// TODO Auto-generated method stub
-		return null;
+	public E[] toArray(E[] copy) {		
+		return myArrayList.toArray(copy);
 	}
 
 	@Override
-	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+	public int search(E e) {
+		int index = 0;
+
+		while (myArrayList.get(index) != e) {
+			index++;
+		}
+		
+		return index +1;
 	}
 
 	@Override
-	public Object[] toArray(Object[] copy) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int search(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean contains(Object o) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean contains(E e) {
+		return myArrayList.contains(e);
 	}
 
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return myArrayList.size();
 	}
-
-	
-
 }

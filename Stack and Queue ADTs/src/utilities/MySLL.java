@@ -125,19 +125,10 @@ public class MySLL<E> implements ListADT<E> {
 	@Override
 	public boolean addAll(ListADT<? extends E> toAdd) throws NullPointerException {
 		try {
-			if (toAdd == null) {
-				throw new NullPointerException();
-			}
-
-			ListADT<E> list = (MySLL<E>) toAdd;
-			
-			Iterator<E> it = list.iterator();
-//TODO: 이게 맞는건가?
-			while (it.hasNext()) {
-				add(it.next());				
+			for (int i = 0; i < toAdd.size(); i++) {
+				this.add(toAdd.get(i));
 			}
 			return true;
-			
 		} catch (NullPointerException e) {
 			return false;
 		}
@@ -293,15 +284,23 @@ public class MySLL<E> implements ListADT<E> {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public E[] toArray(E[] toHold) throws NullPointerException {
-		return null;
+		E[] temp = (E[]) new Object[toHold.length];		
+		for (int i = 0; i < toHold.length; i++) {
+			temp[i] = toHold[i];
+		}
+		return temp;
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		Object[] temp = new Object[this.size];		
+		for (int i = 0; i < this.size; i++) {
+			temp[i] = this.get(i);
+		}
+		return temp;
 	}
 
 	@Override

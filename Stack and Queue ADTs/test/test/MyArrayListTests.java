@@ -67,7 +67,7 @@ class MyArrayListTests {
 		myArrayListString.clear();
 		myArrayListInt.clear();
 	}
-	
+
 	/**
 	 * Adding an element at the end of the list.
 	 */
@@ -80,12 +80,12 @@ class MyArrayListTests {
 
 		try {
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> c -> d
 			 */
 
-			// Test the linked list is not empty.
+			// Test the array list is not empty.
 			assertFalse(this.myArrayListString.isEmpty());
 
 			// Test the size is 4
@@ -105,7 +105,7 @@ class MyArrayListTests {
 	}
 
 	/**
-	 * 	Adding an element at index - pass
+	 * Adding an element at index - pass
 	 */
 	@Test
 	public void testAdd() {
@@ -114,20 +114,20 @@ class MyArrayListTests {
 		this.myArrayListString.add("c");
 		this.myArrayListString.add("d");
 
-		try {			
-			
+		try {
+
 			this.myArrayListString.add(2, "e");
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> e -> c -> d
 			 */
 
-			// Test the linked list is not empty.
+			// Test the array list is not empty.
 			assertFalse(this.myArrayListString.isEmpty());
 
 			// Test the size is 5
-			assertEquals(5, myArrayListString.size());			
+			assertEquals(5, myArrayListString.size());
 
 			// Test the values as per index
 			assertEquals("a", myArrayListString.get(0));
@@ -155,19 +155,19 @@ class MyArrayListTests {
 
 		try {
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> c -> d
 			 */
-			
+
 			assertEquals("c", myArrayListString.set(2, "e"));
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> e -> d
 			 */
 
-			// Test the linked list is not empty.
+			// Test the array list is not empty.
 			assertFalse(this.myArrayListString.isEmpty());
 
 			// Test the size is 4
@@ -185,7 +185,50 @@ class MyArrayListTests {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
+	/**
+	 * 
+	 */
+	@Test
+	public void testAddAll() {
+
+		MyArrayList<String> myArrayListStringToAdd = new MyArrayList<>();
+
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+
+		myArrayListStringToAdd.add("c");
+		myArrayListStringToAdd.add("d");
+
+		myArrayListString.addAll(myArrayListStringToAdd);
+
+		try {
+			/**
+			 * Array list should now be:
+			 * 
+			 * a -> b -> c -> d
+			 */
+
+			// Test the array list is not empty.
+			assertFalse(this.myArrayListString.isEmpty());
+
+			// Test the size is 4
+			assertEquals(4, myArrayListString.size());
+
+			// Test the values as per index
+			assertEquals("a", myArrayListString.get(0));
+			assertEquals("b", myArrayListString.get(1));
+			assertEquals("c", myArrayListString.get(2));
+			assertEquals("d", myArrayListString.get(3));
+
+		} catch (NullPointerException e) {
+			System.out.println(e.getMessage());
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 	/**
 	 * Getting an element
 	 */
@@ -198,12 +241,12 @@ class MyArrayListTests {
 
 		try {
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> c -> d
 			 */
 
-			// Test the linked list is not empty.
+			// Test the array list is not empty.
 			assertFalse(this.myArrayListString.isEmpty());
 
 			// Test the size is 4
@@ -221,7 +264,7 @@ class MyArrayListTests {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Getting an element
 	 */
@@ -234,12 +277,12 @@ class MyArrayListTests {
 
 		try {
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> c -> d
 			 */
 
-			// Test the linked list is not empty.
+			// Test the array list is not empty.
 			assertFalse(this.myArrayListString.isEmpty());
 
 			// Test the size is 4
@@ -266,7 +309,7 @@ class MyArrayListTests {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Getting an element
 	 */
@@ -279,12 +322,12 @@ class MyArrayListTests {
 
 		try {
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> c -> d
 			 */
 
-			// Test the linked list is not empty.
+			// Test the array list is not empty.
 			assertFalse(this.myArrayListString.isEmpty());
 
 			// Test the size is 4
@@ -300,7 +343,7 @@ class MyArrayListTests {
 			myArrayListString.remove(2);
 
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> d
 			 */
@@ -319,7 +362,7 @@ class MyArrayListTests {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Getting an element
 	 */
@@ -332,12 +375,12 @@ class MyArrayListTests {
 
 		try {
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> c -> d
 			 */
 
-			// Test the linked list is not empty.
+			// Test the Array list is not empty.
 			assertFalse(this.myArrayListString.isEmpty());
 
 			// Test the size is 4
@@ -353,7 +396,7 @@ class MyArrayListTests {
 			myArrayListString.remove("c");
 
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> d
 			 */
@@ -372,7 +415,7 @@ class MyArrayListTests {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Clearing elements in the list
 	 */
@@ -385,12 +428,12 @@ class MyArrayListTests {
 
 		try {
 			/**
-			 * Linked list should now be:
+			 * Array list should now be:
 			 * 
 			 * a -> b -> c -> d
 			 */
 
-			// Test the linked list is not empty.
+			// Test the Array list is not empty.
 			assertFalse(this.myArrayListString.isEmpty());
 
 			// Test the size is 4
@@ -399,7 +442,7 @@ class MyArrayListTests {
 			// Clear elements in the list
 			myArrayListString.clear();
 
-			// Test the linked list is empty.
+			// Test the Array list is empty.
 			assertTrue(this.myArrayListString.isEmpty());
 
 			// Test the size is 0
@@ -411,32 +454,37 @@ class MyArrayListTests {
 			System.out.println(e.getMessage());
 		}
 	}
-	
-	/**
-	 * 
-	 */
-	@Test
-	public void testToArrayElement() {
-		assertTrue(false);
-		
-	}
-	
-	/**
-	 * 
-	 */
-	@Test
-	public void testToArrayObject() {
-		assertTrue(false);
-		
-	}
 
 	/**
 	 * 
 	 */
 	@Test
-	public void testIterator() {
-		assertTrue(false);
+	public void testToArrayElement() {
+		String[] temp = {"a","b"};
 		
+		this.myArrayListString.add("c");
+		this.myArrayListString.add("d");
+		
+		Object[] myArrayString = myArrayListString.toArray(temp);
+
+		// Test the values as per index
+		assertEquals("a", myArrayString[0]);
+		assertEquals("b", myArrayString[1]);
 	}
-	
+
+	/**
+	 * 
+	 */
+	@SuppressWarnings("unchecked")
+	@Test
+	public void testToArrayObject() {
+		this.myArrayListString.add("a");
+		this.myArrayListString.add("b");
+
+		Object[] temp = myArrayListString.toArray();
+
+		// Test the values as per index
+		assertEquals("a", temp[0]);
+		assertEquals("b", temp[1]);
+	}
 }

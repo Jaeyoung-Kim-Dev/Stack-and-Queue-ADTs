@@ -36,7 +36,7 @@ public interface StackADT<E> extends Serializable {
 	 *
 	 * @throws EmptyStackException Thrown if stack has nothing to pop.
 	 */
-	public E Epop() throws EmptyStackException;
+	public E pop() throws EmptyStackException;
 
 	/**
 	 * Returns the topmost element in a stack without removing it.
@@ -122,8 +122,8 @@ public interface StackADT<E> extends Serializable {
 	public E[] toArray(E[] copy);
 
 	/**
-	 * Not a zero-based position. Instead, the top is at position 1, the next one is
-	 * position 2 etc.
+	 * Returns the position of an Element on the stack, with the top most Element
+	 * being at position 1, and each Element deeper in the stack at depth + 1.
 	 * 
 	 * Precondition:
 	 * 
