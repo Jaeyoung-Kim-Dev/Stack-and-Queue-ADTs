@@ -26,12 +26,12 @@ public class MyStack<E> implements StackADT<E> {
 
 	@Override
 	public E pop() throws EmptyStackException {
-		return myArrayList.remove(0);
+		return myArrayList.remove(myArrayList.size() - 1);
 	}
 
 	@Override
 	public E peek() throws EmptyStackException {
-		return myArrayList.get(0);
+		return myArrayList.get(myArrayList.size() - 1);
 	}
 
 	@Override
@@ -47,41 +47,42 @@ public class MyStack<E> implements StackADT<E> {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean equals(StackADT that) {
-		boolean equal = true;		
-		for (int i =0; i < myArrayList.size() && !equal; i++) {
+		boolean equal = true;
+		for (int i = 0; i < myArrayList.size() && !equal; i++) {
 			if (myArrayList.get(i) != ((MyArrayList<E>) that).get(i)) {
 				equal = false;
 			}
-		}				
+		}
 		return equal;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public Iterator iterator() {		
+	public Iterator iterator() {
 		return myArrayList.iterator();
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public E[] toArray() {		
+	public E[] toArray() {
 		return (E[]) myArrayList.toArray();
 	}
 
 	@Override
-	public E[] toArray(E[] copy) {		
+	public E[] toArray(E[] copy) {
 		return myArrayList.toArray(copy);
 	}
 
 	@Override
 	public int search(E e) {
-		int index = 0;
+		int index;
 
-		while (myArrayList.get(index) != e) {
-			index++;
-		}
-		
-		return index +1;
+		for (index = 0; index < myArrayList.size(); index++)
+			if (myArrayList.get(index) == e) {
+				return ++index;				
+			}
+
+		return -1;
 	}
 
 	@Override

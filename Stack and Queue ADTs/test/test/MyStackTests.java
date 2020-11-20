@@ -75,10 +75,10 @@ class MyStackTests {
 			 */
 
 			// Test the values as per index
-			assertEquals("a", myStackString.pop());
-			assertEquals("b", myStackString.pop());
-			assertEquals("c", myStackString.pop());
 			assertEquals("d", myStackString.pop());
+			assertEquals("c", myStackString.pop());
+			assertEquals("b", myStackString.pop());
+			assertEquals("a", myStackString.pop());
 
 		} catch (EmptyStackException e) {
 			System.out.println(e.getMessage());
@@ -101,7 +101,7 @@ class MyStackTests {
 			// Test the size is 4
 			assertEquals(4, myStackString.size());
 
-			assertEquals("a", myStackString.peek());
+			assertEquals("d", myStackString.peek());
 
 			// Test the size is still 4
 			assertEquals(4, myStackString.size());
