@@ -44,7 +44,7 @@ public class MyStack<E> implements StackADT<E> {
 		return myArrayList.isEmpty();
 	}
 
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public boolean equals(StackADT that) {
 		boolean equal = true;
@@ -56,7 +56,7 @@ public class MyStack<E> implements StackADT<E> {
 		return equal;
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Iterator iterator() {
 		return myArrayList.iterator();
@@ -76,12 +76,13 @@ public class MyStack<E> implements StackADT<E> {
 	@Override
 	public int search(E e) {
 		int index;
-
-		for (index = 0; index < myArrayList.size(); index++)
-			if (myArrayList.get(index) == e) {
-				return ++index;				
+		String is;
+		for (index = 0; index < myArrayList.size(); index++) {
+			is = (String) myArrayList.get(index);
+			if (e.equals((String) myArrayList.get(index))) {
+				return index;				
 			}
-
+		}
 		return -1;
 	}
 

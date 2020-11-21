@@ -11,23 +11,26 @@ import exceptions.EmptyStackException;
 import utilities.*;
 
 /**
- * @author kornk
+ * 
+ * 
+ * @author Jaeyoung Kim
  *
  */
 public class AppDriver {
 
 	/**
-	 * @param args
+	 * @param args the xml file
 	 */
 	public static void main(String[] args) throws IOException {
 		MyStack<String> stack = new MyStack<String>();
 		MyQueue<String> errorQ = new MyQueue<String>();
 		MyQueue<String> extrasQ = new MyQueue<String>();
 
-		String fileName = "res/sample2.xml"; // args[0];
+		String fileName = "res/sample1.xml"; // args[0];
 
 		int lineNumber = 1;
-
+		boolean noError = true;
+		
 		// Open the file
 		File file = new File(fileName);
 		Scanner inFile = new Scanner(file);
@@ -47,108 +50,117 @@ public class AppDriver {
 
 				char curChar = line.charAt(i);
 
-				if (curChar == '<' && !collectStr) {
+				if (curChar == '<' && !collectStr) { // begging sign: <
 					collectStr = true;
-				} else if (curChar != '>' && collectStr) {
+				} else if (curChar != '>' && collectStr) { // continuing to collect characters
 					tmpLine += curChar;
-				} else if (curChar == '>' && collectStr) {
+				} else if (curChar == '>' && collectStr) { // ending sign: >
 					collectStr = false;
-				} else if (curChar == '<' && collectStr) {					
-					errorQ.enqueue("Error: Unexpected < (Line #" + lineNumber + ")");
-					//System.out.println("Error: Unexpected < (Line #" + lineNumber + ")");
-				} else if (curChar == '>' && !collectStr) {					
-					errorQ.enqueue("Error: Unexpected > (Line #" + lineNumber + ")");
-					//System.out.println("Error: Unexpected > (Line #" + lineNumber + ")");
+				} else if (curChar == '<' && collectStr) { // error: begging sign while collecting characters
+					System.out.println("Error: Unexpected < (Line #" + lineNumber + ")");
+				} else if (curChar == '>' && !collectStr) { // error: ending sign while no collecting character
+					System.out.println("Error: Unexpected > (Line #" + lineNumber + ")");
 				}
 
+				// once a tag is completed.
 				if (tmpLine != "" && !collectStr) {
-					if (isSelfClosingTag(tmpLine)) {
-						//break;
-					} else if (isStartTag(tmpLine)) {
+					if (isSelfClosingTag(tmpLine)) { // self closing tag: <tag />
+						tmpLine = ""; // reset tmpLine once a tag is complete for the next character or line
+					} else if (isStartTag(tmpLine)) { // start tag: <tag>
 						String tmpLineSplit[] = tmpLine.split(" ", 2); // split tag and parameters
-						stack.push(tmpLineSplit[0]);
-						//break;
-					} else if (isClosingTag(tmpLine)) {
-						// System.out.println("Closing tag" + tmpLine);
+						stack.push(tmpLineSplit[0]); // push tag only to stack
+						tmpLine = ""; // reset tmpLine once a tag is complete for the next character or line
+					} else if (isClosingTag(tmpLine)) { // closing tag: </tag>
 						try {
-							String tag = stack.pop();
-							if (tag.equals(tmpLine.substring(1, tmpLine.length()))) {
-								System.out.println(tmpLine + "Tag matches. (Line #" + lineNumber + ")");
-							} else if (tag.equals(errorQ.peek())) {
+							String tagOpen = stack.peek();
+							String tagClose = tmpLine.substring(1, tmpLine.length());
+							if (tagOpen.equals(tagClose)) { // If matches top of stack, pop stack and all is well
+								stack.pop();
+								// System.out.println(tmpLine + " tag matches. (Line #" + lineNumber + ")");
+							} else if (tagClose.equals(errorQ.peek())) { // Else if matches head of errorQ, dequeue and
+																			// ignore
 								errorQ.dequeue();
-							} else if (stack.size() == 0) {
+							} else if (stack.isEmpty()) { // Else if stack is empty, add to errorQ								
 								errorQ.enqueue(tmpLine);
+								noError = false;
 							} else {
-								int search = stack.search(tmpLine.substring(1, tmpLine.length()));
-								if (search > 0) { // element found. The first index starts with 1 not 0.									
-									for (int j = 0; j < search; j++) {
-										stack.pop();
+								int search = stack.search(tagClose); // Search stack for matching Start_Tag
+								if (search > 0) { // If stack has match
+									for (int j = 0; j < stack.size() - search; j++) { // Pop each E from stack into
+																						// errorQ until match
+										tagOpen = stack.peek();
+										errorQ.enqueue(stack.pop());
+										System.out.println("Error: The " + tagOpen + " tag wasn't closed before the "
+												+ tagClose + " tag (Line #" + lineNumber + ")");
 									}
-									String errorQmsg = "Error: The " + tag + " tag wasn't closed before the "
-											+ tmpLine + " tag (Line #" + lineNumber + ")";
-									errorQ.enqueue(errorQmsg);
+									tagOpen = stack.pop(); // pop the correct opening tag after removing error tags.
 								} else { // element NOT found.
-									String eatrasQmsg = "Error: The " + tmpLine + " tag does not have a match (Line #"
-											+ lineNumber + ")";
-									extrasQ.enqueue(eatrasQmsg);
+									extrasQ.enqueue(tmpLine);
 								}
+								noError = false;
 							}
-							//break;
+							tmpLine = ""; // reset tmpLine once a tag is complete for the next character or line
 						} catch (EmptyStackException e) {
-							errorQ.enqueue(tmpLine);
-							// e.printStackTrace();
+							e.printStackTrace();
 						}
 					}
 				}
 			}
-			//System.out.print("break");
 		}
 
-//		while (!stack.isEmpty()) {
-//			try {
-//				errorQ.enqueue(stack.pop());
-//			} catch (EmptyStackException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-
 		// If stack is not empty, pop each E into errorQ
-		// If either queue is empty (but not both), report each E in both queues as
-		// error
-		// If both queues are not empty, peek both queues
-		// If they don¡¯t match, dequeue from errorQ and report as error
-		// Else dequeue from both
+		while (!stack.isEmpty()) {
+			try {
+				errorQ.enqueue(stack.pop());
+			} catch (EmptyStackException e) {
+				e.printStackTrace();
+			}
+		}
+
 		// Repeat until both queues are empty
+		while (!errorQ.isEmpty() && !extrasQ.isEmpty()) {
+			String errorTag;
+			
+			// If both queues are not empty, peek both queues
+			// If they don¡¯t match, dequeue from errorQ and report as error
+			// Else dequeue from both
+			if (!errorQ.peek().equals(extrasQ.peek())) {
+				errorTag = (String) errorQ.dequeue();
+				System.out.println("Error: The " + errorTag + " tag does not have a match");
+			} else {
+				errorQ.dequeue();
+				extrasQ.dequeue();
+			}
+		}
 
-		// Pop off the stack.
-//		try {
-//			String tag1 = stack.pop();
-//		} catch (EmptyStackException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//
-//		// Add to queue
-//		errorQ.enqueue("tag");
-//
-//		// Dequeue
-//		String tag2 = errorQ.dequeue();
-//		
-//		System.out.print("break");
-//		System.out.print("break");
-	}
-
-	private static boolean isPrologTag(String line) {
-		return false;
-		// Check if it's a prolog tag (i.e. <?xml version="1.0" encoding="UTF-8"?>)
+		// Repeat until both queues are empty
+		while (!(errorQ.isEmpty() && extrasQ.isEmpty())) {
+			String errorTag;
+			// If either queue is empty (but not both), report each E in both queues as
+			// error
+			if ((errorQ.isEmpty() || extrasQ.isEmpty()) && !(errorQ.isEmpty() && extrasQ.isEmpty())) {
+				if (!errorQ.isEmpty()) {
+					errorTag = (String) errorQ.dequeue();
+					System.out.println(
+							"Error: The " + errorTag + " tag does not have a match");
+				} else {
+					errorTag = (String) extrasQ.dequeue();
+					System.out.println(
+							"Error: The " + errorTag + " tag does not have a match");
+				}
+			}
+		}
+		
+		if (noError) {
+			System.out.println("The XML is valid. No error found!");
+		}
 	}
 
 	/**
-	 * Check if it's self closing (i.e. <tag />)
+	 * Check if it's a self closing tag(i.e. <tag />)
 	 * 
-	 * @param tmpLine
-	 * @return
+	 * @param tmpLine the tag to be checked
+	 * @return return true if tag is a self closing tag
 	 */
 	private static boolean isSelfClosingTag(String tmpLine) {
 		return tmpLine.charAt(0) != '/' && tmpLine.charAt(tmpLine.length() - 1) == '/';
@@ -157,8 +169,8 @@ public class AppDriver {
 	/**
 	 * Check if it's a starting tag (i.e. <tag>)
 	 * 
-	 * @param tmpLine
-	 * @return
+	 * @param tmpLine the tag to be checked
+	 * @return return true if tag is a starting tag
 	 */
 	private static boolean isStartTag(String tmpLine) {
 		return tmpLine.charAt(0) != '/' && tmpLine.charAt(tmpLine.length() - 1) != '/';
@@ -167,8 +179,8 @@ public class AppDriver {
 	/**
 	 * Check if it's a closing tag (i.e. </tag>)
 	 * 
-	 * @param tmpLine
-	 * @return
+	 * @param tmpLine the tag to be checked
+	 * @return return true if tag is a closing tag
 	 */
 	private static boolean isClosingTag(String tmpLine) {
 		return tmpLine.charAt(0) == '/' && tmpLine.charAt(tmpLine.length() - 1) != '/';

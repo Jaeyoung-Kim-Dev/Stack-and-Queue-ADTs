@@ -180,7 +180,7 @@ public class MySLL<E> implements ListADT<E> {
 				// Decrement the size
 				size--;
 
-				return (E) temp;
+				return (E) temp.getData();
 
 			} else {
 				MySLLNode previousNode = head;
@@ -198,7 +198,7 @@ public class MySLL<E> implements ListADT<E> {
 				// Decrement the size
 				size--;
 
-				return (E) targetNode;
+				return (E) targetNode.getData();
 			}
 		} catch (IndexOutOfBoundsException e) {
 			return null;
