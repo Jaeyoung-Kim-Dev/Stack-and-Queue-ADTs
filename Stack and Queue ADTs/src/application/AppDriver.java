@@ -11,22 +11,25 @@ import exceptions.EmptyStackException;
 import utilities.*;
 
 /**
+ * This application is parsing XML files with my own ADTs for a stack and a queue.
  * 
  * 
  * @author Jaeyoung Kim
+ * @version 1.0, November 20, 2020
  *
  */
 public class AppDriver {
 
 	/**
 	 * @param args the xml file
+	 * @throws IOException IOException
 	 */
 	public static void main(String[] args) throws IOException {
 		MyStack<String> stack = new MyStack<String>();
 		MyQueue<String> errorQ = new MyQueue<String>();
 		MyQueue<String> extrasQ = new MyQueue<String>();
 
-		String fileName = "res/sample1.xml"; // args[0];
+		String fileName = args[0];
 
 		int lineNumber = 1;
 		boolean noError = true;
@@ -157,7 +160,7 @@ public class AppDriver {
 	}
 
 	/**
-	 * Check if it's a self closing tag(i.e. <tag />)
+	 * Check if it's a self closing tag
 	 * 
 	 * @param tmpLine the tag to be checked
 	 * @return return true if tag is a self closing tag
@@ -167,7 +170,7 @@ public class AppDriver {
 	}
 
 	/**
-	 * Check if it's a starting tag (i.e. <tag>)
+	 * Check if it's a starting tag
 	 * 
 	 * @param tmpLine the tag to be checked
 	 * @return return true if tag is a starting tag
@@ -177,7 +180,7 @@ public class AppDriver {
 	}
 
 	/**
-	 * Check if it's a closing tag (i.e. </tag>)
+	 * Check if it's a closing tag
 	 * 
 	 * @param tmpLine the tag to be checked
 	 * @return return true if tag is a closing tag

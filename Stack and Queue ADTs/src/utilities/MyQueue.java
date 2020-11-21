@@ -4,15 +4,13 @@ package utilities;
  * 
  * @author Jaeyoung Kim
  *
- * @param <E>
+ * @param <E> Element
  */
 @SuppressWarnings("serial")
 public class MyQueue<E> implements QueueADT<E> {
 	private MySLL<E> mySLL;
 
-	/**
-	 * @param myArrayList
-	 */
+
 	public MyQueue() {
 		this.mySLL = new MySLL<E>();
 	}

@@ -14,7 +14,7 @@ public class MySLLIterator<E> implements Iterator<E> {
 	private MySLL<E> mySLL;
 	
 	/**
-	 * @param mySLL
+	 * @param mySLL mySLL
 	 */
 	public MySLLIterator(MySLL<E> mySLL) {
 		this.mySLL = mySLL;

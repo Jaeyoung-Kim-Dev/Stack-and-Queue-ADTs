@@ -19,10 +19,6 @@ public class MyArrayList<E> implements ListADT<E> {
 	 */
 	private int size;
 
-	/**
-	 * @param arrayList
-	 * @param size
-	 */
 	public MyArrayList() {
 		this.size = 0;
 		this.arrayList = new Object[this.size];
