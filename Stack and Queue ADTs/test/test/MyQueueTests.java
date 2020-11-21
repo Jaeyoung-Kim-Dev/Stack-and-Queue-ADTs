@@ -66,10 +66,10 @@ class MyQueueTests {
 		this.myQueueString.enqueue("d");
 
 		// Remove the first value
-		this.myQueueString.dequeue();
+		
 
 		// Test the values at the first
-		assertEquals("b", myQueueString.peek());
+		assertEquals("a", this.myQueueString.dequeue());
 	}
 
 	@Test
