@@ -4,7 +4,7 @@ package utilities;
  * 
  * @author Jaeyoung Kim
  *
- * @param <E>
+ * @param <E> Element
  */
 @SuppressWarnings("serial")
 public class MySLL<E> implements ListADT<E> {

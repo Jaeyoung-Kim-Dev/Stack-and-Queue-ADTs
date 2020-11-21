@@ -48,7 +48,7 @@ class MyArrayListTests {
 	 * @Before - Will execute the method before each test. This method can prepare
 	 *         the test environment (e.g. read input data, initialize the class).
 	 * 
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception Exception
 	 */
 	@BeforeEach
 	public void setUp() throws Exception {
@@ -60,7 +60,7 @@ class MyArrayListTests {
 	 * @After - Will execute the method after each test. This method can cleanup the
 	 *        test environment (e.g. delete temporary data, restore defaults).
 	 * t
-	 * @throws java.lang.Exception
+	 * @throws java.lang.Exception Exception
 	 */
 	@AfterEach
 	public void tearDown() throws Exception {
