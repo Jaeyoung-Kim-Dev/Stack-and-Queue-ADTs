@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+package utilities;
+
+import java.io.Serializable;
+
+/**
+ * The stack data type operations for a stack
+ * @author Jaeyoung Kim
+ *
+ */
+public interface StackADT<E> extends Serializable {	
+	/**
+	 * Pushes an element to the top of the stack
+	 * @param e Element
+	 */
+	public void push(E e);
+	
+	//pop - Remove and return an element
+	//peek - Get the first element without removing it
+	//isEmpty - Is there any elements?
+	//size - How many elements are there?
+
+	boolean equals( StackADT<E> that) {
+		
+	}
+	
+}

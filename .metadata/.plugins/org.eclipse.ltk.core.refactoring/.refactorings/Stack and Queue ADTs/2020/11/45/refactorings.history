@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;StackADT.java&apos; to &apos;Stack and Queue ADTs/src/utilities&apos;&#x0D;&#x0A;- Original project: &apos;Stack and Queue ADTs&apos;&#x0D;&#x0A;- Destination element: &apos;Stack and Queue ADTs/src/utilities&apos;&#x0D;&#x0A;- Original element: &apos;utilities.StackADT.java&apos;" description="Copy compilation unit" destination="/src&lt;utilities" element1="/src&lt;utilities{StackADT.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1604470588604" units="1" version="1.0"/>
+</session>
