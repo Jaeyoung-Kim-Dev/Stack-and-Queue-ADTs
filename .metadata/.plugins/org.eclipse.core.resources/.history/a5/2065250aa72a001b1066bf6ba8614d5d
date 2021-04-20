@@ -1,0 +1,141 @@
+/**
+ * 
+ */
+package application;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+import exceptions.EmptyStackException;
+import utilities.*;
+
+/**
+ * @author kornk
+ *
+ */
+public class AppDriver {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) throws IOException {
+		MyStack<String> stack = new MyStack<String>();
+		MyQueue<String> errorQ = new MyQueue<String>();
+		MyQueue<String> extrasQ = new MyQueue<String>();
+
+		String fileName = "res/sample1.xml"; // args[0];
+
+		// Open the file
+		File file = new File(fileName);
+		Scanner inFile = new Scanner(file);
+
+		// Skip the prolog tag
+		inFile.nextLine();
+
+		// Read from the file
+		while (inFile.hasNext()) {
+
+			// Whitespace is either a space, tab or a new line.
+			String line = inFile.nextLine().trim(); // " <tag> " -> "<tab>"
+			char preChar =' ';
+
+			for (int i = 0; i < line.length(); i++) {
+				char curChar = line.charAt(i);
+
+				if (isSelfClosingTag(preChar, curChar)) {
+					// Ignore
+
+				}
+
+				// If Self_Closing_Tag
+				if (isStartTag(curChar)) {
+
+				}
+
+				// If Start_Tag
+				if (!isClosingTag(preChar, curChar)) {
+					// Pushon stack
+
+				}
+				
+				preChar = curChar;
+			}
+
+			// If Prolog_Tag
+			/*
+			 * if (isPrologTag(line)) { // Ignore }
+			 */
+
+			// If Self_Closing_Tag
+
+			// If End_Tag
+			// If matches top of stack, pop stack and all is well
+			// Else if matches head of errorQ, dequeue and ignore
+			// Else if stack is empty, add to errorQ
+			// Else
+			// Search stack for matching Start_Tag
+
+			// If stack has match
+			// Pop each E from stack into errorQ until match, report as error
+			// Else
+			// Add E to extrasQ
+		}
+
+		// If stack is not empty, pop each E into errorQ
+		// If either queue is empty (but not both), report each E in both queues as
+		// error
+		// If both queues are not empty, peek both queues
+		// If they don¡¯t match, dequeue from errorQ and report as error
+		// Else dequeue from both
+		// Repeat until both queues are empty
+
+		// Add to the stack
+		stack.push("tag");
+
+		// Pop off the stack.
+		try {
+			String tag1 = stack.pop();
+		} catch (EmptyStackException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// Add to queue
+		errorQ.enqueue("tag");
+
+		// Dequeue
+		String tag2 = errorQ.dequeue();
+	}
+
+	private static boolean isPrologTag(String line) {
+		return false;
+		// Check if it's a prolog tag (i.e. <?xml version="1.0" encoding="UTF-8"?>)
+	}
+
+	/**
+	 * Check if it's self closing (i.e. <tag />)
+	 * 
+	 * @param chracter
+	 * @return
+	 */
+	private static boolean isSelfClosingTag(char preChar, char curChar) {
+		return preChar == '/' && curChar == '>';
+	}
+
+	/**
+	 * Check if it's a starting tag (i.e. <tag>)
+	 * 
+	 * @param chracter
+	 * @return
+	 */
+	private static boolean isStartTag(char curChar) {
+		return curChar == '<';
+	}
+
+	private static boolean isClosingTag(char preChar, char curChar) {
+		return curChar.contains("</");
+		// Check if it's a starting tag (i.e. <tag>)
+	}
+
+}
