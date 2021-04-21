@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MyArrayListTests" project="Stack and Queue ADTs" tests="11" started="11" failures="0" errors="0" ignored="0">
+  <testsuite name="test.MyArrayListTests" time="0.001" displayname="MyArrayListTests" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]">
+    <testcase name="testAdd" classname="test.MyArrayListTests" time="0.001" displayname="testAdd()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testAdd()]"/>
+    <testcase name="testGet" classname="test.MyArrayListTests" time="0.0" displayname="testGet()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testGet()]"/>
+    <testcase name="testClear" classname="test.MyArrayListTests" time="0.0" displayname="testClear()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testClear()]"/>
+    <testcase name="testFind" classname="test.MyArrayListTests" time="0.0" displayname="testFind()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testFind()]"/>
+    <testcase name="testRemoveIndex" classname="test.MyArrayListTests" time="0.0" displayname="testRemoveIndex()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testRemoveIndex()]"/>
+    <testcase name="testToArrayElement" classname="test.MyArrayListTests" time="0.0" displayname="testToArrayElement()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testToArrayElement()]"/>
+    <testcase name="testReplace" classname="test.MyArrayListTests" time="0.0" displayname="testReplace()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testReplace()]"/>
+    <testcase name="testAddAll" classname="test.MyArrayListTests" time="0.0" displayname="testAddAll()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testAddAll()]"/>
+    <testcase name="testAppend" classname="test.MyArrayListTests" time="0.0" displayname="testAppend()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testAppend()]"/>
+    <testcase name="testRemoveElement" classname="test.MyArrayListTests" time="0.0" displayname="testRemoveElement()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testRemoveElement()]"/>
+    <testcase name="testToArrayObject" classname="test.MyArrayListTests" time="0.0" displayname="testToArrayObject()" uniqueid="[engine:junit-jupiter]/[class:test.MyArrayListTests]/[method:testToArrayObject()]"/>
+  </testsuite>
+</testrun>
