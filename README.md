@@ -19,9 +19,9 @@
 
 ## How to run the program
 
-> 1.  Run Command Prompt (CMD) on Windows or Terminal on macOS or Linux
+> 1.  Run Command Prompt (CMD) on Windows or Terminal on macOS/Linux
 > 2.  Change directory which includes the Parser.jar file.
-> 3.  Typle in the command lines with arguments like the example below.
+> 3.  Type in the command lines with arguments like the example below.
 > 4.  Command examples:
 
 ```sh
