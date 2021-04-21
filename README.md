@@ -51,7 +51,7 @@
 
 ![MyArrayListTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MyArrayListTests.jpg?raw=true)
 
-#### My SLL Tests
+#### My LinkedList Tests
 
 ![MySLLTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MySLLTests.jpg?raw=true)
 
