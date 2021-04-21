@@ -13,13 +13,16 @@
 > Extensible Markup Language (XML) is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.
 > <a href="https://en.wikipedia.org/wiki/XML" target=" _blank">Learn more on Wikipedia</a>
 
+## Languages
+<p align="left"> <a href="https://www.java.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> </p>
+
 ## Structure of the program
 
 ![structur](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/ComponentsStructure.jpg?raw=true)
 
 ## Documentation
 
-<a href="https://jaeyoung-kim-dev.github.io/XML-Parser/" target=" _blank">Javadoc</a>
+<a href="https://jaeyoung-kim-dev.github.io/XML-Parser/" target=" _blank">JavaDoc</a>
 
 ## How to run the program
 
