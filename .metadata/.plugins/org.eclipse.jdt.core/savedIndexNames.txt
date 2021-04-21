@@ -12,9 +12,9 @@ INDEX VERSION 1.131+C:\Users\kornk\GitHub\Stack-and-Queue-ADTs\.metadata\.plugin
 2922245217.index
 3281612051.index
 1714061489.index
-4073100839.index
 2842592287.index
 2270713507.index
+4073100839.index
 69196607.index
 1644613161.index
 3862868720.index
