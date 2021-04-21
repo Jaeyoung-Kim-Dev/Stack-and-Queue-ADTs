@@ -25,14 +25,36 @@
 > 4.  Command examples:
 
 ```sh
-java -jar Parser.jar res/sample1.xml
+> java -jar Parser.jar res/sample1.xml
 ```
+
+![ResultExample1](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/ResultExample1.jpg?raw=true)
 
 ```sh
-java -jar Parser.jar res/sample2.xml
+> java -jar Parser.jar res/sample2.xml
 ```
 
+![ResultExample2](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/ResultExample2.jpg?raw=true)
+
 ## Testing
+
+> Result of the JUnit Test
+
+#### My ArrayList Tests
+
+![MyArrayListTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MyArrayListTests.jpg?raw=true)
+
+#### My SLL Tests
+
+![MySLLTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MySLLTests.jpg?raw=true)
+
+#### My Stack Tests
+
+![MyStackTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MyStackTests.jpg?raw=true)
+
+#### My Queue Tests
+
+![MyQueueTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MyQueueTests.jpg?raw=true)
 
 ## Author
 
