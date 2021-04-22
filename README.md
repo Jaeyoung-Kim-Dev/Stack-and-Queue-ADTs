@@ -2,7 +2,7 @@
 
 ## What project is it?
 
-> This is XML Parser, a project I did in the third semester of college (SAIT).
+> This is XML Parser, a project I did in the third semester of college <a href="https://www.sait.ca/programs-and-courses/diplomas/information-technology" target='_blank'>(SAIT)</a>.
 
 ## What is the purpose of the project?
 
