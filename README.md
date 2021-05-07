@@ -18,7 +18,7 @@
 
 ## Structure of the program
 
-![structur](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/ComponentsStructure.jpg?raw=true)
+![structur](./img/ComponentsStructure.jpg?raw=true)
 
 ## Documentation
 
@@ -35,13 +35,13 @@
 > java -jar Parser.jar res/sample1.xml
 ```
 
-![ResultExample1](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/ResultExample1.jpg?raw=true)
+![ResultExample1](./img/ResultExample1.jpg?raw=true)
 
 ```sh
 > java -jar Parser.jar res/sample2.xml
 ```
 
-![ResultExample2](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/ResultExample2.jpg?raw=true)
+![ResultExample2](./img/ResultExample2.jpg?raw=true)
 
 ## Testing
 
@@ -49,19 +49,19 @@
 
 #### My ArrayList Tests
 
-![MyArrayListTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MyArrayListTests.jpg?raw=true)
+![MyArrayListTests](./img/MyArrayListTests.jpg?raw=true)
 
 #### My LinkedList Tests
 
-![MySLLTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MySLLTests.jpg?raw=true)
+![MySLLTests](./img/MySLLTests.jpg?raw=true)
 
 #### My Stack Tests
 
-![MyStackTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MyStackTests.jpg?raw=true)
+![MyStackTests](./img/MyStackTests.jpg?raw=true)
 
 #### My Queue Tests
 
-![MyQueueTests](https://github.com/Jaeyoung-Kim-Dev/Stack-and-Queue-ADTs/blob/main/img/MyQueueTests.jpg?raw=true)
+![MyQueueTests](./img/MyQueueTests.jpg?raw=true)
 
 ## Author
 
